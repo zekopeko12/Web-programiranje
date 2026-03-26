@@ -1,0 +1,121 @@
+:root {
+    --color-rock: #3498db;
+    --color-alternative: #2ecc71;
+    --color-rap: #f1c40f;
+    --color-electronic: #9b59b6;
+    --color-metal: #e74c3c;
+    --color-soul: #1abc9c;
+    --color-dance: #e67e22;
+    --color-house: #95a5a6;
+
+    --bar-height: 40px;
+    --bar-gap: 8px;
+    --bar-width-multiplier: 40px; 
+}
+
+/* Bar chart (desktop) */
+.bar-chart {
+    display: block;
+    margin-left: 25%;
+}
+
+.bar {
+    height: var(--bar-height);
+    width: 0;
+    margin: var(--bar-gap) 0;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    animation: grow 1s ease forwards;
+}
+
+@keyframes grow {
+    from { width: 0; }
+    to { width: calc(var(--value) * var(--bar-width-multiplier)); }
+}
+
+/* Boje */
+.bar.rock { background-color: var(--color-rock); }
+.bar.alternative { background-color: var(--color-alternative); }
+.bar.rap { background-color: var(--color-rap); }
+.bar.electronic { background-color: var(--color-electronic); }
+.bar.metal { background-color: var(--color-metal); }
+.bar.soul { background-color: var(--color-soul); }
+.bar.dance { background-color: var(--color-dance); }
+.bar.house { background-color: var(--color-house); }
+
+.pie-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .bar-chart { display: none; }
+
+    .pie-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+    }
+
+    .pie-chart {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+
+        /* Pravi postotci */
+        background: conic-gradient(
+            var(--color-rock) 0% 33.33%,        /* 7/21 ≈ 33.33% */
+            var(--color-alternative) 33.33% 57.14%, /* 5/21 ≈ 23.81% */
+            var(--color-rap) 57.14% 71.43%,     /* 3/21 ≈ 14.29% */
+            var(--color-electronic) 71.43% 80.95%, /* 2/21 ≈ 9.52% */
+            var(--color-metal) 80.95% 85.71%,   /* 1/21 ≈ 4.76% */
+            var(--color-soul) 85.71% 90.48%,    /* 1/21 ≈ 4.76% */
+            var(--color-dance) 90.48% 95.24%,   /* 1/21 ≈ 4.76% */
+            var(--color-house) 95.24% 100%      /* 1/21 ≈ 4.76% */
+        );
+        animation: pie-appear 1s ease forwards;
+    }
+
+    @keyframes pie-appear {
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Legenda */
+    .pie-legend {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .pie-legend div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    /* Boje legende */
+    .legend-color.rock { background-color: var(--color-rock); }
+    .legend-color.alternative { background-color: var(--color-alternative); }
+    .legend-color.rap { background-color: var(--color-rap); }
+    .legend-color.electronic { background-color: var(--color-electronic); }
+    .legend-color.metal { background-color: var(--color-metal); }
+    .legend-color.soul { background-color: var(--color-soul); }
+    .legend-color.dance { background-color: var(--color-dance); }
+    .legend-color.house { background-color: var(--color-house); }
+}
