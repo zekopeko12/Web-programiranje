@@ -101,6 +101,40 @@ footer {
     color: white;
 }
 
+.filters {
+    display: flex;
+    justify-content: center; /* centrira horizontalno */
+    align-items: center;
+    gap: 15px; /* razmak između filtera */
+    margin: 20px 0;
+    flex-wrap: wrap; /* da se lijepo prelamaju na manjim ekranima */
+}
+
+.filters input,
+.filters select {
+    padding: 8px;
+    font-size: 14px;
+    min-width: 50px;
+}
+
+/* manji inputi za godinu i raspoloženje */
+#filter-year {
+    width: 100px;
+}
+
+#filter-mood {
+    width: 130px;
+}
+
+/* dropdown može ostati malo veći */
+#filter-genre {
+    width: 150px;
+}
+
+table button {
+    width: 100%;
+}
+
 /* Responzivnost */
 @media (max-width: 768px) {
     .data-container {

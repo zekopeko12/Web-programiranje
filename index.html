@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     </head>
     <body>
         
@@ -27,114 +28,95 @@
 
         <h1>TABLICA GLAZBE</h1>
 
+        <div class="filters">
+            <select id="filter-genre">
+                <option value="">Svi žanrovi</option>
+                <option>Rock</option>
+                <option>Pop</option>
+                <option>Hip Hop</option>
+            </select>
+            <input type="number" id="filter-year" placeholder="Godina">
+            <select id="filter-mood">
+                <option value="">Sva raspoloženja</option>
+                <option>Energetic</option>
+                <option>Dramatic</option>
+                <option>Dark</option>
+                <option>Happy</option>
+                <option>Melancholic</option>
+                <option>Cheerful</option>
+                <option>Powerful</option>
+                <option>Aggressive</option>
+                <option>Emotional</option>
+                <option>Groovy</option>
+                <option>Inspirational</option>
+                <option>Passionate</option>
+                <option>Relaxed</option>
+                <option>Festive</option>
+                <option>Determined</option>
+                <option>Dreamy</option>
+                <option>Intense</option>
+                <option>Funky</option>
+                <option>Danceable</option>
+                <option>Anthemic</option>
+                <option>Moody</option>
+                <option>Confident</option>
+                <option>Empowering</option>
+                <option>Wild</option>
+                <option>Romantic</option>
+                <option>Serious</option>
+                <option>Gritty</option>
+                <option>Uplifting</option>
+                <option>Summer Vibes</option>
+            </select>
+        </div>
+
         <div class="main">
             <table>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Artist</th>
-                        <th>Tags</th>
                         <th>Year</th>
-                        <th>Duration (ms)</th>
+                        <th>Genre</th>
+                        <th>Mood</th>
+                        <th>Akcija</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Mr. Brightside</td>
-                        <td>The Killers</td>
-                        <td>Rock, alternative</td>
-                        <td>2004</td>
-                        <td>222200</td>
-                    </tr>
-                    <tr>
-                        <td>Wonderwall</td>
-                        <td>Oasis</td>
-                        <td>Rock, alternative</td>
-                        <td>2006</td>
-                        <td>258613</td>
-                    </tr>
-                    <tr>
-                        <td>Creep</td>
-                        <td>Radiohead</td>
-                        <td>Rock, alternative</td>
-                        <td>2008</td>
-                        <td>238640</td>
-                    </tr>
-                    <tr>
-                        <td>Feel Good Inc.</td>
-                        <td>Gorillaz</td>
-                        <td>Rock, electronic</td>
-                        <td>2010</td>
-                        <td>223106</td>
-                    </tr>
-                    <tr>
-                        <td>Sultans of Swing</td>
-                        <td>Dire Straits</td>
-                        <td>Rock</td>
-                        <td>2013</td>
-                        <td>348812</td>
-                    </tr>
-                    <tr>
-                        <td>Wake Me Up When September Ends</td>
-                        <td>Green Day</td>
-                        <td>Rock, alternative</td>
-                        <td>2013</td>
-                        <td>285663</td>
-                    </tr>
-                    <tr>
-                        <td>Lonely Day</td>
-                        <td>System of a Down</td>
-                        <td>Rock, metal</td>
-                        <td>2010</td>
-                        <td>167906</td>
-                    </tr>
-                    <tr>
-                        <td>It Ain't Hard to Tell</td>
-                        <td>Nas</td>
-                        <td>Rap</td>
-                        <td>2018</td>
-                        <td>352718</td>
-                    </tr>
-                    <tr>
-                        <td>Award Tour</td>
-                        <td>A Tribe Called Quest</td>
-                        <td>Rap</td>
-                        <td>2008</td>
-                        <td>207586</td>
-                    </tr>
-                    <tr>
-                        <td>Everything I Am</td>
-                        <td>Kanye West</td>
-                        <td>Soul, rap</td>
-                        <td>2007</td>
-                        <td>227893</td>
-                    </tr>
-                    <tr>
-                        <td>One More Time</td>
-                        <td>Daft Punk</td>
-                        <td>Electronic, dance, house</td>
-                        <td>2010</td>
-                        <td>248760</td>
-                    </tr>
-                    <tr>
-                        <td>Twin</td>
-                        <td>Muse</td>
-                        <td>Alternative rock</td>
-                        <td>1999</td>
-                        <td>197472</td>
-                    </tr>
+                <tbody id="table-body">
                 </tbody>
             </table>
 
             <aside>
+                <h2>Košarica</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Izvođač</th>
+                            <th>Pjesma</th>
+                            <th>Godina</th>
+                            <th>Žanr</th>
+                            <th>Akcija</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-body"></tbody>
+                </table>
+
+                <button id="confirm-btn">Potvrdi odabir</button>
+
                 <img src="images/daft-punk-discovery.png">
                 <img src="images/toxicity-soad.jpg">
             </aside>
 
         </div>
+        
+        <th>Akcija</th>
+        <button id="confirm-btn">Potvrdi odabir</button>
 
         <footer>
 		    <p>&copy; 2025. Web Programiranje. Sva prava pridrzana.</p>
 		</footer>
+
+        <script src="script.js"></script>
     </body>
 </html>
